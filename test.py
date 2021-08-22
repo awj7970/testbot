@@ -3,6 +3,7 @@ import discord
 import asyncio
 import datetime
 import random
+import os
 
 from discord import message
 from discord import asset
@@ -10,8 +11,6 @@ from discord import activity
 from discord import embeds
 
 client = discord.Client()
-
-token = "ODc2MDA3NzA1NTQ5MDc4NTU4.YRdzwA.kxAKsbbJM1WyPL9ddw5mxQIDQ7Y"
 
 @client.event
 async def on_ready():
@@ -66,4 +65,5 @@ async def on_message(message):
         if ran == 3:
             await message.channel.send(f"{message.author.name}님, 자신감있고 활기찬 모습이 좋으니 오늘은 큰 목소리로 어필해보길 바랍니다.")
 
-client.run(token)
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
